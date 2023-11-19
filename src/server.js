@@ -17,6 +17,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(3000, function () {
-  console.log("Example app listening on port 3000!");
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
