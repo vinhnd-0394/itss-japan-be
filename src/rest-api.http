@@ -1,3 +1,12 @@
+###
 GET http://localhost:3000/api/v1/foods
 
 ###
+
+POST http://localhost:3000/api/v1/login
+Content-Type: application/json; charset=UTF-8
+
+{
+  "username": "DuyVinh",
+  "password": "123456"
+}
