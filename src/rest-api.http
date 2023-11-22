@@ -10,3 +10,6 @@ Content-Type: application/json; charset=UTF-8
   "username": "DuyVinh",
   "password": "123456"
 }
+
+###
+GET http://localhost:3000/api/v1/favorites/3

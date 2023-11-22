@@ -1,8 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-const Food = require('./food')
+"use strict";
+const { Model } = require("sequelize");
+const Food = require("./food");
 module.exports = (sequelize, DataTypes) => {
   class FavoriteFood extends Model {
     /**
@@ -12,21 +10,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       FavoriteFood.belongsTo(models.Foods, {
-        foreignKey: "id",
+        foreignKey: "food_id",
         as: "food",
       });
       FavoriteFood.belongsTo(models.Users, {
-        foreignKey: "id",
+        foreignKey: "user_id",
         as: "user",
       });
     }
   }
-  FavoriteFood.init({
-    user_id: DataTypes.INTEGER,
-    food_id: DataTypes.INTEGER,
-  }, {
-    sequelize,
-    modelName: 'FavoriteFood',
-  });
+  FavoriteFood.init(
+    {
+      user_id: DataTypes.INTEGER,
+      food_id: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "FavoriteFood",
+    }
+  );
   return FavoriteFood;
 };

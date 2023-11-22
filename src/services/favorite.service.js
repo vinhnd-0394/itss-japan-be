@@ -1,23 +1,15 @@
 const { BadRequestError } = require("../core/error.response");
 const { FavoriteFood, Users, Foods } = require("../models");
 
-const getFavoriteFood = async () => {
+const getFavoriteFood = async (userId) => {
   try {
     const favoriteFoods = await FavoriteFood.findAll({
-      include: [
-        {
-          model: Users,
-          as: "user",
-          attributes: { exclude: ["password"] },
-        },
-        {
+      where: { user_id: userId },
+        include: {
           model: Foods,
           as: "food",
         },
-      ],
-    //   attributes: {exclude: ["user_id", "food_id"]},
     });
-
     return favoriteFoods;
   } catch (error) {
     throw new BadRequestError(error.message);
