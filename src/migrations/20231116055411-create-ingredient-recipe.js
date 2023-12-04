@@ -30,6 +30,9 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER,
       },
+      unit: {
+        type: Sequelize.STRING,
+      },
       type: {
         type: Sequelize.STRING,
       },

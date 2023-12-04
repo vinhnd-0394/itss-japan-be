@@ -12,12 +12,6 @@ module.exports = {
       ingredientName: {
         type: Sequelize.STRING,
       },
-      expriedDay: {
-        type: Sequelize.DATE,
-      },
-      ingreDescription: {
-        type: Sequelize.STRING,
-      },
       createdAt: {
         type: "TIMESTAMP",
         allowNull: false,

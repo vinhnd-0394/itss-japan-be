@@ -1,5 +1,5 @@
 const { BadRequestError } = require("../core/error.response");
-const { FavoriteFood, Users, Foods } = require("../models");
+const { FavoriteFood, Foods } = require("../models");
 
 const getFavoriteFood = async (userId) => {
   try {
