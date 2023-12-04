@@ -13,3 +13,9 @@ Content-Type: application/json; charset=UTF-8
 
 ###
 GET http://localhost:3000/api/v1/favorites/3
+
+###
+GET http://localhost:3000/api/v1/recipes
+
+###
+GET http://localhost:3000/api/v1/ingredients

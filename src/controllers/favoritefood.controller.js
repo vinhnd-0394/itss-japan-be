@@ -8,6 +8,15 @@ const getFavoriteFood = async (req, res) => {
   });
 };
 
+const createFavoriteFood = async (req, res) => {
+  const { userId, foodId } = req.body;
+  return res.status(200).json({
+    success: true,
+    favoriteFoods: await foodService.createFavoriteFood(userId, foodId),
+  });
+};
+
 module.exports = {
   getFavoriteFood,
+  createFavoriteFood
 };
