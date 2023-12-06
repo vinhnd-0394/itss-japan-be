@@ -53,6 +53,21 @@ const getAllRecipes = async ({ type, ingredient_ids, foodName }) => {
   }
 };
 
+const createRecipe = async ({ recipeName, author, unknownIngre, foodID }) => {
+  try {
+    const newRecipe = await Recipes.create({
+      recipeName,
+      author,
+      unknownIngre,
+      foodID,
+    });
+    return newRecipe;
+  } catch (error) {
+    // Xử lý lỗi và trả về response lỗi
+    console.error("Error creating recipe:", error);
+  }
+};
 module.exports = {
   getAllRecipes,
+  createRecipe,
 };
