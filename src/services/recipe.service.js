@@ -1,6 +1,6 @@
-const { Op } = require("sequelize");
+const { Op, literal } = require("sequelize");
 const { BadRequestError } = require("../core/error.response");
-const { Foods, Ingredients, IngredientRecipes, Recipes } = require("../models");
+const { Foods, IngredientRecipes, Recipes } = require("../models");
 
 const getAllRecipes = async ({ type, ingredient_ids, foodName }) => {
   try {
@@ -9,29 +9,20 @@ const getAllRecipes = async ({ type, ingredient_ids, foodName }) => {
         {
           model: IngredientRecipes,
           as: "ingredients",
-          include: [
-            {
-              model: Ingredients,
-              as: "ingredient",
-              attributes: { exclude: ["createdAt", "updatedAt"] },
-            },
-          ],
-          ...(type && {
-            where: {
-              type: type,
-            },
-          }),
-
           ...(ingredient_ids && {
-            where: {
-              ingredientID: {
-                [Op.in]: ingredient_ids,
-              },
-            },
+            where: literal(`
+            EXISTS (
+              SELECT 1
+              FROM IngredientRecipes AS ir
+              WHERE ir.recipeID = Recipes.id
+              AND ir.ingredientID IN (${ingredient_ids.join(",")})
+              GROUP BY ir.recipeID
+              HAVING COUNT(DISTINCT ir.ingredientID) = ${ingredient_ids.length}
+            )
+          `),
           }),
           attributes: { exclude: ["createdAt", "updatedAt", "ingredientID"] },
         },
-
         {
           model: Foods,
           as: "food",

@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id",
         as: "recipe",
       });
+      Food.hasMany(models.FavoriteFood, {
+        foreignKey: "food_id",
+        as: "favorite",
+      });
     }
   }
   Food.init(
