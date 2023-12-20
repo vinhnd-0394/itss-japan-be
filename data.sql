@@ -1,6 +1,6 @@
 USE `itss-japan`;
 
--- Insert users
+-- Insert users	
 
 INSERT INTO Users (id, displayName, username, email, password, isAdmin, createdAt, updatedAt) VALUES
 (1, 'Nguyet', 'NguyetLe', 'nguyetle@gmail.com', '123456', 0, '2023-11-18 17:16:35', '2023-11-18 17:16:35'),
@@ -294,3 +294,20 @@ INSERT INTO FavoriteFoods (id,`user_id`,`food_id`,`createdAt`,`updatedAt`) VALUE
 (6,3,2,'2023-11-18 17:16:35', '2023-11-18 17:16:35'),
 (7,3,3,'2023-11-18 17:16:35', '2023-11-18 17:16:35'),
 (2,1,2,'2023-11-18 17:16:35', '2023-11-18 17:16:35');
+
+-- Insert comments 
+INSERT INTO Comments (`user_id`, content, star, `food_id`, `createdAt`, `updatedAt`) 
+VALUES
+    (1, 'Wow, món này thực sự ngon! Mình đã gặp một người bạn ở đây và chúng tôi đã có một bữa tối tuyệt vời.', 5, 5, NOW(), NOW()),
+    (2, 'Khám phá một quán ăn mới và cảm thấy thích thú. Mọi người nên thử món số 8, nó là một trải nghiệm hoàn toàn mới!', 4, 8, NOW(), NOW()),
+    (3, 'Mình đã mang theo gia đình đến đây và mọi người đều thích. Dịch vụ tốt và không gian thoải mái.', 5, 2, NOW(), NOW()),
+    (1, 'Bình luận này đến từ một đầu bếp tự nấu. Món này có vẻ ngon, nhưng mình có thể tự làm ngon hơn ở nhà!', 3, 9, NOW(), NOW()),
+    (2, 'Điều duy nhất làm tôi hối hận là tại sao mình không biết đến đây sớm hơn. Mình sẽ quay lại nhiều lần nữa!', 4, 3, NOW(), NOW()),
+    (3, 'Một trải nghiệm ẩm thực đặc sắc. Mình đã thử nhiều món ở đây và đều rất ngon miệng!', 5, 7, NOW(), NOW()),
+    (1, 'Mình không thể tin nổi mắt mình khi thấy menu. Quá nhiều lựa chọn tuyệt vời!', 5, 1, NOW(), NOW()),
+    (2, 'Hôm nay là ngày sinh nhật của mình, và tôi đã chọn đến đây để ăn mừng. Điều tuyệt vời nhất là bữa tặng surprise từ nhân viên!', 5, 4, NOW(), NOW()),
+    (3, 'Nhớ kỹ tên món: "Hương vị quê hương". Thực sự đúng như tên gọi, khiến mình nhớ về những ngày trở về quê hương.', 4, 10, NOW(), NOW()),
+    (1, 'Mình là một người ưa ẩm thực và đây là một trong những quán phải thử. Không thất vọng chút nào!', 5, 5, NOW(), NOW()),
+    (1, 'Khám phá một quán ăn mới và cảm thấy thích thú. Mọi người nên thử món số 8, nó là một trải nghiệm hoàn toàn mới!', 4, 5, NOW(), NOW()),
+    (2, 'Khám phá một quán ăn mới và cảm thấy thích thú. Mọi người nên thử món số 8, nó là một trải nghiệm hoàn toàn mới!', 4, 5, NOW(), NOW())
+    ;
