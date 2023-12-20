@@ -28,7 +28,21 @@ const createFavoriteFood = async (userId, foodId) => {
   }
 };
 
+const deleteFavoriteFood = async (favoriteFoodId) => {
+  try {
+    const favoriteFoodFound = await FavoriteFood.destroy({
+      where: {
+        id: favoriteFoodId,
+      },
+    });
+    return favoriteFoodFound;
+  } catch (error) {
+    throw new BadRequestError(error.message);
+  }
+};
+
 module.exports = {
   getFavoriteFood,
   createFavoriteFood,
+  deleteFavoriteFood,
 };

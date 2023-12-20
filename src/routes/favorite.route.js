@@ -10,4 +10,9 @@ favoriteRouter.post(
   asyncHandler(favoriteController.createFavoriteFood)
 );
 
+favoriteRouter.delete(
+  "/favorites/:id",
+  asyncHandler(favoriteController.deleteFavoriteFood)
+);
+
 module.exports = favoriteRouter;

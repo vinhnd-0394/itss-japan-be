@@ -7,27 +7,29 @@ INSERT INTO Users (id, displayName, username, email, password, isAdmin, createdA
 (2, 'Vinh', 'DuyVinh', 'vinh@gmail.com', '123456', 1, '2023-11-18 17:17:23', '2023-11-18 17:17:23'),
 (3, 'Thai', 'ThaiDui', 'thai@gmail.com', '123456', 0, '2023-11-18 17:16:35', '2023-11-18 17:16:35');
 
-INSERT INTO Recipes (recipeName, author, unknownIngre, foodID, createdAt, updatedAt)
+INSERT INTO Recipes (recipeName, author, unknownIngre, foodID, createdAt, updatedAt, isAccept)
 VALUES
-  ('Công thức Bún chả', 1, 'Nước mắm, nước dùng cay, bún, thịt nướng', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Phở gà', 1, 'Ginger, cinnamon, cardamom, star anise, cloves', 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Cơm niêu cá basa', 1, 'Cá basa, nước mắm, gạo, mỡ hành', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Bánh mì bơ tỏi', 1, 'Bánh mì, bơ, tỏi, pate, rau sống', 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Gỏi cuốn tôm thịt', 1, 'Tôm, thịt, bún, rau sống, nước mắm', 5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Bún riêu cua', 1, 'Bún, cua, cà chua, bún, hành lá', 6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Mì quảng', 3, 'Miến, tôm, thịt, bánh tráng, nước mắm', 7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Cơm gà xé nước mắm', 3, 'Gà, cơm, nước mắm, hành lá, gia vị', 8, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Bánh mì chảo trứng', 3, 'Bánh mì, trứng, mayonnaise, gia vị', 9, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Công thức Lẩu cá diêu hồng', 3, 'Cá diêu hồng, nước lẩu, rau sống, gia vị', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+  ('Công thức Bún chả', 1, 'Nước mắm, nước dùng cay, bún, thịt nướng', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Phở gà', 1, 'Ginger, cinnamon, cardamom, star anise, cloves', 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Cơm niêu cá basa', 1, 'Cá basa, nước mắm, gạo, mỡ hành', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Bánh mì bơ tỏi', 1, 'Bánh mì, bơ, tỏi, pate, rau sống', 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Gỏi cuốn tôm thịt', 1, 'Tôm, thịt, bún, rau sống, nước mắm', 5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Bún riêu cua', 1, 'Bún, cua, cà chua, bún, hành lá', 6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Mì quảng', 3, 'Miến, tôm, thịt, bánh tráng, nước mắm', 7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Cơm gà xé nước mắm', 3, 'Gà, cơm, nước mắm, hành lá, gia vị', 8, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Bánh mì chảo trứng', 3, 'Bánh mì, trứng, mayonnaise, gia vị', 9, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Công thức Lẩu cá diêu hồng', 3, 'Cá diêu hồng, nước lẩu, rau sống, gia vị', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Thịt heo kho xả ớt', 1, 'dầu điều, nước màu', 11,  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Cá mối khô chiên đường', 2, 'cá mối, dầu ăn', 12, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Cà tím xào tôm thịt', 3, 'cà tím', 13, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1),
+  ('Canh sườn hầm củ sen', 3, 'sườn heo, củ sen, hành lá', 14,  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0),
+  ('Cá mú nướng sa tế cay', 3, 'cá mú, sa tế, ớt khô, dầu hào, tương ớt', 15,  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0),
+  ('Nem nướng chay từ bột mì', 1, 'heo lát chay, bột khoai, bột mì, hạt nêm chạy, bột quế, mè rang', 16, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0);
 
-INSERT INTO Recipes (recipeName, author, unknownIngre, foodID, createdAt, updatedAt)
-VALUES
-  ('Thịt heo kho xả ớt', 1, 'dầu điều, nước màu', 16,  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Cá mối khô chiên đường', 2, 'cá mối, dầu ăn', 17, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Cà tím xào tôm thịt', 3, 'cà tím', 18, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Canh sườn hầm củ sen', 4, 'sườn heo, củ sen, hành lá', 19,  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Cá mú nướng sa tế cay', 5, 'cá mú, sa tế, ớt khô, dầu hào, tương ớt', 20,  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-  ('Nem nướng chay từ bột mì', 1, 'heo lát chay, bột khoai, bột mì, hạt nêm chạy, bột quế, mè rang', 21, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+-- INSERT INTO Recipes (recipeName, author, unknownIngre, foodID, createdAt, updatedAt, isAccept)
+-- VALUES ('Canh sườn hầm củ sen', 3, 'sườn heo, củ sen, hành lá', 19,  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0),
+--   ('Cá mú nướng sa tế cay', 3, 'cá mú, sa tế, ớt khô, dầu hào, tương ớt', 20,  CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0),
+--   ('Nem nướng chay từ bột mì', 1, 'heo lát chay, bột khoai, bột mì, hạt nêm chạy, bột quế, mè rang', 21, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0);
 
 
 INSERT INTO Foods (foodName, foodDescription, recipeID)
@@ -294,3 +296,7 @@ INSERT INTO FavoriteFoods (id,`user_id`,`food_id`,`createdAt`,`updatedAt`) VALUE
 (6,3,2,'2023-11-18 17:16:35', '2023-11-18 17:16:35'),
 (7,3,3,'2023-11-18 17:16:35', '2023-11-18 17:16:35'),
 (2,1,2,'2023-11-18 17:16:35', '2023-11-18 17:16:35');
+
+SELECT * FROM `itss-japan`.Recipes;
+SELECT * FROM `itss-japan`.Foods;
+SELECT * FROM `itss-japan`.IngredientRecipes;

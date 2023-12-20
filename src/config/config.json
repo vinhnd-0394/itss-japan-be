@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "thaihotboy1",
-    "database": "itss_japan",
+    "password": "root",
+    "database": "itss-japan",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false

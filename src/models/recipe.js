@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
         as: "food",
       });
 
+      Recipe.belongsTo(models.Users, {
+        foreignKey: "author",
+        as: "user",
+      });
+
       Recipe.hasMany(models.IngredientRecipes, {
         foreignKey: "recipeID",
         as: "ingredients",
@@ -21,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       author: DataTypes.INTEGER,
       unknownIngre: DataTypes.STRING,
       foodID: DataTypes.INTEGER,
+      isAccept: DataTypes.BOOLEAN,
     },
     {
       sequelize,

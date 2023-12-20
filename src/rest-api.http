@@ -18,4 +18,16 @@ GET http://localhost:3000/api/v1/favorites/3
 GET http://localhost:3000/api/v1/recipes
 
 ###
+GET http://localhost:3000/api/v1/recipes/not-accept
+
+###
+PUT http://localhost:3000/api/v1/recipes/15/accept
+
+###
+DELETE http://localhost:3000/api/v1/recipes/14/not-accept
+
+###
 GET http://localhost:3000/api/v1/ingredients
+
+###
+DELETE http://localhost:3000/api/v1/favorites/10
