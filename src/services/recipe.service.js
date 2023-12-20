@@ -38,6 +38,7 @@ const getAllRecipes = async ({ type, ingredient_ids, foodName }) => {
           }),
         },
       ],
+      order: [["updatedAt", "DESC"]],
       attributes: { exclude: ["foodID"] },
     });
 
@@ -94,6 +95,7 @@ const getNotAcceptRecipes = async () => {
         },
       ],
       attributes: { exclude: ["author"] },
+      order: [["createdAt", "DESC"]],
     });
 
     return notRecipes;

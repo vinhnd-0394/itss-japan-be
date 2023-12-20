@@ -10,17 +10,6 @@ const {
 const getAllFood = async () => {
   try {
     const foods = await Foods.findAll({
-      // where: {
-      //   include: [
-      //     {
-      //       model: Recipes,
-      //       as: "recipe",
-      //       where: {
-      //         isAccept: 1,
-      //       },
-      //     },
-      //   ],
-      // },
       include: [
         {
           model: Recipes,
