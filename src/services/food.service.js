@@ -16,7 +16,7 @@ const getAllFood = async () => {
           as: "recipe",
           attributes: { exclude: ["foodID"] },
           where: {
-            isAccept: 1,
+            isAccept: true,
           },
         },
         {
@@ -27,6 +27,7 @@ const getAllFood = async () => {
     });
     return foods;
   } catch (error) {
+    console.log("getAllFood", error);
     throw new BadRequestError(error.message);
   }
 };
@@ -64,6 +65,7 @@ const getFoodDetail = async (foodId) => {
     });
     return detailFood;
   } catch (error) {
+    console.log("getFoodDetail", error);
     throw new BadRequestError(error.message);
   }
 };

@@ -1,6 +1,7 @@
 const express = require("express");
 const rootRouter = require("./routes");
 const cors = require("cors");
+const connectDatabase = require("./config/db.connect");
 const app = express();
 
 app.use(express.json());
@@ -20,6 +21,8 @@ app.use((error, req, res, next) => {
     message: error.message,
   });
 });
+
+connectDatabase();
 
 const PORT = 3000;
 app.listen(PORT, () => {

@@ -1,11 +1,17 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "itss-japan",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "logging": false
+    "username": "itss_japan_user",
+    "password": "zj5uoXwMcwa0yNCYp0rfUji2UlcRFzsT",
+    "database": "itss_japan",
+    "host": "dpg-cm442kmn7f5s73bt1110-a.singapore-postgres.render.com",
+    "dialect": "postgres",
+    "logging": false,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
     "username": "root",
@@ -15,10 +21,17 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "itss_japan_user",
+    "password": "zj5uoXwMcwa0yNCYp0rfUji2UlcRFzsT",
+    "database": "itss_japan",
+    "host": "dpg-cm442kmn7f5s73bt1110-a.singapore-postgres.render.com",
+    "dialect": "postgres",
+    "logging": false,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }

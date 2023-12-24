@@ -14,6 +14,7 @@ const getFavoriteFood = async (userId) => {
     });
     return favoriteFoods;
   } catch (error) {
+    console.log("getFavoriteFood", error);
     throw new BadRequestError(error.message);
   }
 };
@@ -26,6 +27,7 @@ const createFavoriteFood = async (userId, foodId) => {
     });
     return newFavoriteFood;
   } catch (error) {
+    console.log("createFavoriteFood", error);
     throw new BadRequestError(error.message);
   }
 };
@@ -39,6 +41,7 @@ const deleteFavoriteFood = async (favoriteFoodId) => {
     });
     return favoriteFoodFound;
   } catch (error) {
+    console.log("deleteFavoriteFood", error);
     throw new BadRequestError(error.message);
   }
 };

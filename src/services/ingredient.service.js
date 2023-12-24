@@ -8,6 +8,7 @@ const getAllIngredients = async () => {
     });
     return ingredients;
   } catch (error) {
+    console.log("getAllIngredients", error);
     throw new BadRequestError(error.message);
   }
 };

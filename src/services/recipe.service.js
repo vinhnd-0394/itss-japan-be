@@ -6,7 +6,7 @@ const getAllRecipes = async ({ type, ingredient_ids, foodName }) => {
   try {
     const recipes = await Recipes.findAll({
       where: {
-        isAccept: 1,
+        isAccept: true,
       },
       include: [
         {
@@ -16,11 +16,13 @@ const getAllRecipes = async ({ type, ingredient_ids, foodName }) => {
             where: literal(`
             EXISTS (
               SELECT 1
-              FROM IngredientRecipes AS ir
-              WHERE ir.recipeID = Recipes.id
-              AND ir.ingredientID IN (${ingredient_ids.join(",")})
-              GROUP BY ir.recipeID
-              HAVING COUNT(DISTINCT ir.ingredientID) = ${ingredient_ids.length}
+              FROM "IngredientRecipes" AS "ir"
+              WHERE "ir"."recipeID" = "Recipes"."id"
+              AND "ir"."ingredientID" IN (${ingredient_ids.join(",")})
+              GROUP BY "ir"."recipeID"
+              HAVING COUNT(DISTINCT "ir"."ingredientID") = ${
+                ingredient_ids.length
+              }
             )
           `),
           }),
@@ -38,21 +40,32 @@ const getAllRecipes = async ({ type, ingredient_ids, foodName }) => {
           }),
         },
       ],
-      order: [["updatedAt", "DESC"]],
+      order: [["updatedAt", "ASC"]],
       attributes: { exclude: ["foodID"] },
     });
 
     return recipes;
   } catch (error) {
+    console.log("getAllRecipes", error);
     throw new BadRequestError(error.message);
   }
 };
 
 const createRecipe = async ({ recipeName, author, ingredientTags, food }) => {
   try {
+    const { foodName, foodDescription } = food;
+    if (
+      !recipeName ||
+      !author ||
+      !ingredientTags ||
+      !foodName ||
+      !foodDescription
+    ) {
+      return new BadRequestError("Missing input");
+    }
     const newFood = await Foods.create({
-      foodName: food.foodName,
-      foodDescription: food.foodDescription,
+      foodName: foodName,
+      foodDescription: foodDescription,
     });
 
     const ingredientStrings = ingredientTags.map(
@@ -77,8 +90,8 @@ const createRecipe = async ({ recipeName, author, ingredientTags, food }) => {
     });
     return newRecipe;
   } catch (error) {
-    // Xử lý lỗi và trả về response lỗi
-    console.error("Error creating recipe:", error);
+    console.log("createRecipe", error);
+    throw new BadRequestError(error.message);
   }
 };
 
@@ -86,7 +99,7 @@ const getNotAcceptRecipes = async () => {
   try {
     const notRecipes = await Recipes.findAll({
       where: {
-        isAccept: 0,
+        isAccept: false,
       },
       include: [
         {
@@ -100,6 +113,7 @@ const getNotAcceptRecipes = async () => {
 
     return notRecipes;
   } catch (error) {
+    console.log("getNotAcceptRecipes", error);
     throw new BadRequestError(error.message);
   }
 };
@@ -118,6 +132,7 @@ const acceptRecipe = async (recipeId) => {
     }
     throw new BadRequestError("Not found");
   } catch (error) {
+    console.log("acceptRecipe", error);
     throw new BadRequestError(error.message);
   }
 };
@@ -136,6 +151,7 @@ const notAcceptRecipe = async (recipeId) => {
 
     throw new BadRequestError("Not found");
   } catch (error) {
+    console.log("notAcceptRecipe", error);
     throw new BadRequestError(error.message);
   }
 };

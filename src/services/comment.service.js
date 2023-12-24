@@ -19,14 +19,18 @@ const getCommentsByFoodID = async (foodID) => {
     });
     return comments;
   } catch (error) {
+    console.error("Error getCommentsByFoodID:", error);
     throw new BadRequestError(error.message);
   }
 };
 
 const createComment = async ({ user_id, star, content, food_id }) => {
   try {
+    if (!star || !content) {
+      throw new BadRequestError("Missing input");
+    }
     const comment = await Comment.create({
-        user_id,
+      user_id,
       star,
       content,
       food_id,
@@ -35,6 +39,7 @@ const createComment = async ({ user_id, star, content, food_id }) => {
   } catch (error) {
     // Xử lý lỗi và trả về response lỗi
     console.error("Error creating recipe:", error);
+    throw new BadRequestError(error.message);
   }
 };
 
